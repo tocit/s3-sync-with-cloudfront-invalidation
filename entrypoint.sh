@@ -2,11 +2,6 @@
 
 set -e
 
-if [ -z "$AWS_S3_BUCKET" ]; then
-  echo "AWS_S3_BUCKET is not set. Quitting."
-  exit 1
-fi
-
 if [ -z "$AWS_ACCESS_KEY_ID" ]; then
   echo "AWS_ACCESS_KEY_ID is not set. Quitting."
   exit 1
@@ -14,6 +9,11 @@ fi
 
 if [ -z "$AWS_SECRET_ACCESS_KEY" ]; then
   echo "AWS_SECRET_ACCESS_KEY is not set. Quitting."
+  exit 1
+fi
+
+if [ -z "$AWS_S3_BUCKET" ]; then
+  echo "AWS_S3_BUCKET is not set. Quitting."
   exit 1
 fi
 
@@ -48,7 +48,7 @@ sh -c "aws s3 sync ${SOURCE_DIR:-.} s3://${AWS_S3_BUCKET}/${DEST_DIR} \
               --profile s3-sync-action \
               --no-progress \
               ${ENDPOINT_APPEND} $*"
-              
+
 sh -c "aws cloudfront create-invalidation --distribution-id ${DISTRIBUTION_ID} --paths "/*" --profile s3-sync-action"
 
 # Clear out credentials after we're done.
