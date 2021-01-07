@@ -1,7 +1,7 @@
 FROM python:3.8-alpine
 
 LABEL "com.github.actions.name"="S3 Sync with CloudFront Cache invalidation"
-LABEL "com.github.actions.description"="Sync a directory to an AWS S3 repository and invalidate the CloudFront cache"
+LABEL "com.github.actions.description"="Sync a directory to an AWS S3 bucket and invalidate the CloudFront cache"
 LABEL "com.github.actions.icon"="refresh-cw"
 LABEL "com.github.actions.color"="green"
 
