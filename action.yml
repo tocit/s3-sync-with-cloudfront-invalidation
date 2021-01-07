@@ -1,5 +1,5 @@
-name: "S3 Sync with CloudFront Cache invalidation"
-description: "Sync a directory to an AWS S3 repository and invalidate the CloudFront cache"
+name: "AWS S3 Sync with CloudFront Cache invalidation"
+description: "Sync a directory to an AWS S3 bucket and invalidate the CloudFront cache"
 author: kersvers
 runs:
   using: docker
